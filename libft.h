@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juanmar2 <@student.42barcelona.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/27 12:34:25 by juanmar2          #+#    #+#             */
-/*   Updated: 2024/09/27 12:34:32 by juanmar2         ###   ########.fr       */
+/*   Created: 2024/09/27 14:47:41 by juanmar2          #+#    #+#             */
+/*   Updated: 2024/09/27 15:09:43 by juanmar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
-{
-	int	is_super;
-	int	is_lower;
+#ifndef LIBFT_H
+# define LIBFT_H
 
-	is_super = (c >= 65 && c <= 90);
-	is_lower = (c >= 97 && c <= 122);
-	if (is_super || is_lower)
-		return (1);
-	else
-		return (0);
-}
+# include <unistd.h>
 
-/*#include <stdio.h> 
-int	main(int argc, char **argv)
-{	
-	int char_alpha;
+/*############################# FUNCTIONS ####################################*/
 
-	--argc;
-	char_alpha = ft_isalpha(argv[1][0]);
-	printf("the character -> %c is alpha: %d\n", argv[1][0], char_alpha);
-	return (0);
-}*/
+int	ft_isalpha(int c);
+int	ft_isdigit(int c);
+int	ft_isalnum(int c);
+
+#endif 
