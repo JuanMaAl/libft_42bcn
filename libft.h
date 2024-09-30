@@ -6,7 +6,7 @@
 /*   By: juanmar2 <@student.42barcelona.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 14:47:41 by juanmar2          #+#    #+#             */
-/*   Updated: 2024/09/30 19:02:08 by juanmar2         ###   ########.fr       */
+/*   Updated: 2024/09/30 19:34:51 by juanmar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ int		ft_isascii(int c);
 int		ft_isprint(int c);
 size_t	ft_strlen(const char *s);
 void	*ft_memset(void *s, int c, size_t n);
+void	ft_bzero(void *s, size_t n);
 
 #endif 
