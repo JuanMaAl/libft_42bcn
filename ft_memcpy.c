@@ -6,7 +6,7 @@
 /*   By: juanmar2 <@student.42barcelona.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 20:54:58 by juanmar2          #+#    #+#             */
-/*   Updated: 2024/10/01 10:51:11 by juanmar2         ###   ########.fr       */
+/*   Updated: 2024/10/01 11:24:49 by juanmar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	return (dest);
 }
 
-/*#include <stdio.h>
+/*
+#include <stdio.h>
 #include <string.h>
 int	main(void)
 {
@@ -42,9 +43,9 @@ int	main(void)
 	char *string3 = 0;
 	char *string4 = 0;
 	printf("string2 before ft_memcpy: %s\n", string2);
-	ft_memcpy((void *)string2, string1, 5);
+	ft_memcpy(string2, string1, 5);
 	printf("string2 after ft_memcpy: %s\n", string2);
-	if (ft_memcpy((void *)string4, string3, sizeof(string4)) == 0)
+	if (ft_memcpy(string4, string3, sizeof(string4)) == 0)
 		printf("The return of two empty strings is Null oK!\n");
 	return (0);	
 }*/
