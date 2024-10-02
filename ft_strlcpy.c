@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juanmar2                                   +#+  +:+       +#+        */
-/*      <juanmar2@student.42barcelona.com>        +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/25 19:34:54 by juanmar2          #+#    #+#             */
-/*   Updated: 2024/10/02 20:00:53 by juanmar2         ###   ########.fr       */
+/*   By: juanmar2 <@student.42barcelona.com>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/02 20:15:06 by juanmar2          #+#    #+#             */
+/*   Updated: 2024/10/02 20:23:25 by juanmar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-size_t	ft_strlen(const char *s);
+#include "libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
@@ -29,3 +27,17 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	dst[i] = '\0';
 	return (ft_strlen(src));
 }
+
+/*#include <stdio.h>
+
+int	main(void)
+{
+	char str1[] = "Hola mundo";
+	char str2[20];
+	
+	ft_strlcpy(str2, str1, sizeof(str2));
+	printf("String: %s\n", str2);
+	if (str2[10] == '\0')
+		printf("OK\n");
+	return (0);
+}*/
