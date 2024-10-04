@@ -6,7 +6,7 @@
 #    By: juanmar2 <@student.42barcelona.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/02 18:10:13 by juanmar2          #+#    #+#              #
-#    Updated: 2024/10/04 19:59:09 by juanmar2         ###   ########.fr        #
+#    Updated: 2024/10/04 21:33:45 by juanmar2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,8 @@ SRC = ft_isalpha.c \
        ft_strrchr.c \
        ft_strncmp.c \
        ft_memchr.c \
-       ft_memcmp.c
+       ft_memcmp.c \
+       ft_strnstr.c
 
 # OBJECTS #
 
