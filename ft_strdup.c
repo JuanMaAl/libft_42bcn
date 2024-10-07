@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juanmar2 <@student.42barcelona.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/30 18:15:29 by juanmar2          #+#    #+#             */
-/*   Updated: 2024/10/07 18:09:32 by juanmar2         ###   ########.fr       */
+/*   Created: 2024/10/07 17:45:41 by juanmar2          #+#    #+#             */
+/*   Updated: 2024/10/07 18:14:36 by juanmar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strdup(const char *s)
 {
-	int	i;
+	char	*ptr;
+	int		len;
 
-	i = 0;
-	while (s[i])
-	{
-		i++;
-	}
-	return (i);
+	len = ft_strlen(s) + 1;
+	ptr = malloc (len * sizeof(char));
+	if (!ptr)
+		return (NULL);
+	ft_strlcpy(ptr, s, len);
+	return (ptr);
 }
 
-/*#include <string.h>
-#include <stdio.h>
+/*#include <stdio.h>
 int	main(void)
 {
-	printf("strlen(Hola Mundo): %lu\n", strlen("Hola Mundo"));
-	printf("ft_strlen(Hola Mundo): %lu\n", ft_strlen("Hola Mundo"));
-	printf("strlen(nulo): %lu\n", strlen("\0"));
-	printf("ft_strlen(nulo): %lu\n", ft_strlen("\0"));
+	char	*s1;
+	char	*s2;
+
+	s1 = "Hola mundo!";
+	s2 = ft_strdup(s1);
+	printf("%s\n", s1);
+	printf("%s\n", s2);
 	return (0);
 }*/
