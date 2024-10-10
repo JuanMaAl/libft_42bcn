@@ -6,7 +6,7 @@
 #    By: juanmar2 <@student.42barcelona.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/02 18:10:13 by juanmar2          #+#    #+#              #
-#    Updated: 2024/10/08 15:56:03 by juanmar2         ###   ########.fr        #
+#    Updated: 2024/10/10 21:12:45 by juanmar2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,8 @@ SRC = ft_isalpha.c \
        ft_strdup.c \
        ft_substr.c \
        ft_strjoin.c \
-       ft_strtrim.c
+       ft_strtrim.c \
+       ft_split.c
 
 # OBJECTS #
 
