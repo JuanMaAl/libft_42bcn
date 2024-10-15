@@ -6,7 +6,7 @@
 /*   By: juanmar2 <@student.42barcelona.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 20:15:06 by juanmar2          #+#    #+#             */
-/*   Updated: 2024/10/15 11:46:11 by juanmar2         ###   ########.fr       */
+/*   Updated: 2024/10/15 11:50:39 by juanmar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	unsigned int	i;
 
 	i = 0;
-	if (size == 0)
+	if (size < 1)
 		return (ft_strlen(src));
 	while (i < size -1 && src[i])
 	{
