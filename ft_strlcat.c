@@ -6,7 +6,7 @@
 /*   By: juanmar2 <@student.42barcelona.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:44:07 by juanmar2          #+#    #+#             */
-/*   Updated: 2024/10/15 14:22:00 by juanmar2         ###   ########.fr       */
+/*   Updated: 2024/10/15 14:28:57 by juanmar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 
 	src_len = ft_strlen(src);
 	dst_len = ft_strlen(dst);
-	if(dst_len >= dstsize)
+	if (dst_len >= dstsize)
 		dst_len = dstsize;
 	if (dst_len == dstsize)
 		return (dst_len + src_len);
