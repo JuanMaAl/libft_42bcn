@@ -12,105 +12,78 @@
 
 #include "libft.h"
 
-static char	*ret_words(char	*s, char c, char **strings, int j)
+static size_t	word_size(char const *s, int start, char c)
 {
-	int		i;
-	char	*s2;
+	size_t	size;
 
-	i = 0;
-	s2 = NULL;
-	while (s[i] != c && s[i] != 0)
-		i++;
-	s2 = malloc ((i + 2) * sizeof(char));
-	if (!s2)
+	size = 0;
+	while (s[start] && s[start] != c)
 	{
-		while (j >= 0)
-		{
-			free(strings[j]);
-			j--;
-		}
-		return (0);
+		size++;
+		start++;
 	}
-	i = 0;
-	while (s[i] != c && s[i] != 0)
-	{
-		s2[i] = s[i];
-		i++;
-	}
-	s2[i] = 0;
-	return (s2);
-}
-
-static int	count_str_chars(char const *s, char c)
-{
-	int	counter;
-	int	i;
-
-	counter = 0;
-	i = 0;
-	while (s[i])
-	{
-		if (s[i] != c)
-			counter++;
-		i++;
-	}
-	return (counter);
+	return (size);
 }
 
 static int	count_words(char const *s, char c)
 {
 	int	counter;
 	int	i;
+	int	on_off;
 
 	counter = 0;
 	i = 0;
-	if (s[0] != c)
-		counter++;
+	on_off = 0;
 	while (s[i])
 	{
-		if (s[i] == c && s[i + 1] != c && s[i + 1] != '\0')
+		if (s[i] != c && on_off == 0)
+		{
 			counter++;
+			on_off = 1;
+		}
+		else if (s[i] == c)
+			on_off = 0;
 		i++;
 	}
 	return (counter);
 }
 
-static char	**arr_strs(char const *s, char c, int size)
+char	**error_free(char **str, int counter)
 {
-	char	**strs;
-	int		i;
-	int		j;
-	int		k;
-	int		nbr_pos;
-
-	strs = malloc(size);
-	i = 0;
-	j = 0;
-	k = 0;
-	nbr_pos = count_words(s, c) + 1;
-	if (s[0] != c && s[0] != 0)
-		strs[j++] = ret_words((char *)&s[0], c, strs, k++);
-	while (s[i] && j < nbr_pos)
+	while (counter >= 0)
 	{
-		if (s[i] == c && s[i + 1] != c && s[i + 1] != '\0')
-			strs[j++] = ret_words((char *)&s[i + 1], c, strs, k++);
-		i++;
+		free(str[counter]);
+		counter--;
 	}
-	strs[j] = 0;
-	return (strs);
+	free(str);
+	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**strings;
-	int		size;
+	int		words;
+	char	**str;
+	int		i;
+	int		j;	
 
-	size = count_str_chars(s, c) + 2 * count_words(s, c) + 1;
-	strings = malloc(size);
-	if (!strings)
-		return (0);
-	strings = arr_strs(s, c, size);
-	return (strings);
+	words = count_words(s, c);
+	str = malloc((words + 1) * sizeof (char *));
+	if (!str)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (j < words)
+	{
+		while (s[i] == c)
+			i++;
+		str[j] = ft_substr(s, i, word_size(s, i, c));
+		if (!str[j])
+			return (error_free(str, j));
+		j++;
+		i += word_size(s, i, c);
+	}
+	str[j] = '\0';
+	return (str);
 }
 
 /*#include <stdio.h>
@@ -118,7 +91,6 @@ int	main(void)
 {
 	char	*str = "Hola1#Hola2###Hola3#####Hola4####";
 	char	**strings;
-	printf("Se espera 20: %d\n", count_str_chars(str, '#'));
 	printf("Se espera 4: %d\n", count_words(str, '#'));
 	strings = ft_split(str, '#');
 	printf("Se espera Hola1: %s\n", strings[0]);
