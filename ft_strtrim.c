@@ -27,46 +27,39 @@ static	int	ft_isset(char c, char const *set)
 	return (0);
 }
 
-static	char	*reverse_str(char *s)
+static char	*new_str(const char *s1, size_t start, size_t len)
 {
-	char	*temp;
-	int		i;
-	int		j;
+	char	*str;
+	size_t	i;
 
-	i = 0;
-	j = (int)ft_strlen(s) - 1;
-	temp = malloc((j + 2) * sizeof(char));
-	if (!temp)
+	if (len <= 0 || start >= ft_strlen(s1))
+		return (ft_strdup(""));
+	str = ft_calloc(len + 1, sizeof(char));
+	if (!str)
 		return (NULL);
-	while (j >= 0)
+	i = 0;
+	while (i < len)
 	{
-		temp[i] = s[j];
+		str[i] = s1[start + i];
 		i++;
-		j--;
 	}
-	temp[i] = 0;
-	return (temp);
+	return (str);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*ptr;
-	int		i;
-	char	*ptr2;
-	char	*ptr3;
-	char	*ptr4;
+	int	i;
+	int	j;
 
 	i = 0;
+	j = ft_strlen(s1) - 1;
+	if (ft_strlen(s1) == 0)
+		return (ft_strdup(""));
 	while (ft_isset(s1[i], set))
 		i++;
-	ptr = (char *)&s1[i];
-	ptr2 = reverse_str(ptr);
-	i = 0;
-	while (ft_isset(ptr2[i], set))
-		i++;
-	ptr3 = &ptr2[i];
-	ptr4 = reverse_str(ptr3);
-	return (ptr4);
+	while (ft_isset(s1[j], set))
+		j--;
+	return (new_str(s1, i, j - (i - 1)));
 }
 
 /*#include <stdio.h>
