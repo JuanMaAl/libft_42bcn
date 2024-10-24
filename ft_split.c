@@ -6,7 +6,7 @@
 /*   By: juanmar2 <@student.42barcelona.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 16:20:34 by juanmar2          #+#    #+#             */
-/*   Updated: 2024/10/10 21:09:56 by juanmar2         ###   ########.fr       */
+/*   Updated: 2024/10/24 20:16:40 by juanmar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ char	**ft_split(char const *s, char c)
 		j++;
 		i += word_size(s, i, c);
 	}
-	str[j] = '\0';
+	str[j] = 0;
 	return (str);
 }
 
