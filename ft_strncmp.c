@@ -6,7 +6,7 @@
 /*   By: juanmar2 <@student.42barcelona.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 20:12:24 by juanmar2          #+#    #+#             */
-/*   Updated: 2024/10/04 21:02:43 by juanmar2         ###   ########.fr       */
+/*   Updated: 2024/10/24 20:47:09 by juanmar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	size_t	i;
 
 	i = 0;
-	while (i < n)
+	while (i < n && (s1[i] || s2[i]))
 	{
-		if (s1[i] < s2[i])
-			return (s1[i] - s2[i]);
-		if (s1[i] > s2[i])
-			return (s1[i] - s2[i]);
+		if ((unsigned char)s1[i] < (unsigned char)s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		if ((unsigned char)s1[i] > (unsigned char)s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 		i++;
 	}
 	return (0);

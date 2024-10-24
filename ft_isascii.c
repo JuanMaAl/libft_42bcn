@@ -6,9 +6,11 @@
 /*   By: juanmar2 <@student.42barcelona.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 17:04:40 by juanmar2          #+#    #+#             */
-/*   Updated: 2024/09/30 17:04:57 by juanmar2         ###   ########.fr       */
+/*   Updated: 2024/10/24 20:57:04 by juanmar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isascii(int c)
 {
