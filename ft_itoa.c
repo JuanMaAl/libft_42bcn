@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static	int	nbr_len(int n)
+static	int	nbr_len(long n)
 {
 	int	len;
 
@@ -24,69 +24,50 @@ static	int	nbr_len(int n)
 		n *= -1;
 		len++;
 	}
-	while (n / 10 > 0)
+	while (n != 0)
 	{
 		n /= 10;
 		len++;
 	}
-	len++;
 	return (len);
 }
 
-static char	*reverse_str(char *s)
+static char	*str_mem(int len)
 {
-	char	*temp;
-	int		i;
-	int		j;
-	int		iss_negative;
+	char	*mem;
 
-	i = 0;
-	j = (int)ft_strlen(s) - 1;
-	iss_negative = 0;
-	temp = malloc((j + 2) * sizeof(char));
-	if (!temp)
+	mem = malloc((len + 1) * sizeof(char));
+	if (!mem)
 		return (NULL);
-	if (s[0] == '-')
-	{
-		temp[i++] = s[0];
-		++iss_negative;
-	}
-	while (j >= 0 + iss_negative)
-	{
-		temp[i] = s[j];
-		i++;
-		j--;
-	}
-	temp[i] = 0;
-	free(s);
-	return (temp);
+	mem[0] = '0';
+	return (mem);
 }
 
 char	*ft_itoa(int n)
 {
+	int		len;
 	int		i;
-	char	*str;
-	long	j;
+	char	*result;
+	long	nbr;
 
-	i = 0;
-	str = malloc((nbr_len(n) + 1) * sizeof(char));
-	if (!str)
+	nbr = n;
+	len = nbr_len(nbr);
+	result = str_mem(len);
+	if (!result)
 		return (NULL);
-	j = n;
-	if (j < 0)
+	if (nbr < 0)
+		nbr *= -1;
+	i = len - 1;
+	while (nbr != 0)
 	{
-		str[0] = '-';
-		j *= -1;
-		i++;
+		result[i] = ((nbr % 10) + 48);
+		nbr /= 10;
+		i--;
 	}
-	while (j / 10 > 0)
-	{
-		str[i] = (j % 10) + 48;
-		j /= 10;
-		i++;
-	}
-	str[i] = (j % 10) + 48;
-	return (reverse_str(str));
+	if (n < 0)
+		result[0] = '-';
+	result[len] = '\0';
+	return (result);
 }
 
 /*#include <stdio.h>
@@ -96,6 +77,7 @@ int	main(void)
 	printf("se espera 1 <len:0>: %d\n", nbr_len(0));
 	printf("se espera 5432: %s\n", ft_itoa(5432));
 	printf("se espera 0: %s\n", ft_itoa(0));
+	printf("se espera 1: %s\n", ft_itoa(1));
 	printf("se espera -2147483648: %s\n", ft_itoa(-2147483648));
 	return (0);
 }*/
