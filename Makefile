@@ -6,7 +6,7 @@
 #    By: juanmar2 <@student.42barcelona.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/02 18:10:13 by juanmar2          #+#    #+#              #
-#    Updated: 2024/10/15 11:23:09 by juanmar2         ###   ########.fr        #
+#    Updated: 2024/10/25 10:35:14 by juanmar2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,20 +49,20 @@ SRC = ft_isalpha.c \
        ft_putchar_fd.c \
        ft_putstr_fd.c \
        ft_putendl_fd.c \
-       ft_putnbr_fd.c
+       ft_putnbr_fd.c \
 
 # OBJECTS #
 
-OBJ = $(SRC:.c=.o)
+OBJ := $(SRC:%.c=%.o)
 
 # RULES #
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ) 
+	ar -rcs $(NAME) $(OBJ) 
 
-$(OBJ): $(SRC) libft.h
+$(OBJ): $(SRC) libft.h Makefile
 	cc -Wall -Wextra -Werror -c $(SRC) libft.h
 
 clean:
@@ -70,8 +70,11 @@ clean:
 fclean:
 	rm -f $(OBJ)
 	rm -f $(NAME)
+	rm -f libft.h.gch
 re:
 	rm -f $(OBJ)
 	rm -f $(NAME)
+	rm -f libft.h.gch
 	make
 
+.PHONY:		clean fclean re all
