@@ -6,7 +6,7 @@
 /*   By: juanmar2 <@student.42barcelona.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 14:44:07 by juanmar2          #+#    #+#             */
-/*   Updated: 2024/10/15 14:28:57 by juanmar2         ###   ########.fr       */
+/*   Updated: 2024/10/28 20:06:25 by juanmar2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,12 @@ int	main(void)
 {
 	char	src[] = " Tremebundo";
 	char	dst1[5] = "Hola";
-	char	dst2[9] = "Hola";
+	char	dst2[7] = "Hola";
 	char	dst3[30] = "Hola";
 	
 	ft_strlcat(dst1, src, sizeof(dst1));
 	printf("String <Hola>: %s\n", dst1);
-	ft_strlcat(dst2, src, sizeof(dst2));
+	ft_strlcat(dst2, src, 100);
 	printf("String <Hola Tre>: %s\n", dst2);
 	ft_strlcat(dst3, src, sizeof(dst3));
 	printf("String <Hola Tremebundo>: %s\n", dst3);
